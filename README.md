@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Omnipay: Pacnet
 
 **Pacnet Services Ltd driver for the Omnipay PHP payment processing library**
@@ -48,3 +49,7 @@ you can subscribe to.
 
 If you believe you have found a bug, please report it using the [GitHub issue tracker](https://github.com/mfauveau/omnipay-pacnet/issues),
 or better yet, fork the library and submit a pull request.
+=======
+# omnipay-instamojo
+Omnipay library for instamojo
+>>>>>>> 7a71a9b130443e122afd8cc6a7f244b0b5c9196c
