@@ -1,11 +1,8 @@
 <<<<<<< HEAD
 # Omnipay: Instamojo
 
-**Instamojo Services Ltd driver for the Omnipay PHP payment processing library**
+**Instamojo Ltd driver for the Omnipay PHP payment processing library**
 
-[![Build Status](https://travis-ci.org/mfauveau/omnipay-Instamojo.png?branch=master)](https://travis-ci.org/mfauveau/omnipay-Instamojo)
-[![Latest Stable Version](https://poser.pugx.org/mfauveau/omnipay-Instamojo/version.png)](https://packagist.org/packages/mfauveau/omnipay-Instamojo)
-[![Total Downloads](https://poser.pugx.org/mfauveau/omnipay-Instamojo/d/total.png)](https://packagist.org/packages/mfauveau/omnipay-Instamojo)
 
 [Omnipay](https://github.com/omnipay/omnipay) is a framework agnostic, multi-gateway payment
 processing library for PHP 5.3+. This package implements [Instamojo Services Ltd](http://www.Instamojoservices.com/index.php/) support for Omnipay.

@@ -1,17 +1,7 @@
 {
-    "name": "sinfini/omnipay-instamojo",
+    "name": "sinfini/omnipay-citrus",
     "type": "library",
-    "description": "Instamojo (Raven) driver for the Omnipay PHP payment processing library",
-    "keywords": [
-        "gateway",
-        "merchant",
-        "omnipay",
-        "pay",
-        "payment",
-        "purchase",
-        "instamojo",
-    ],
-    "homepage": "https://github.com/sinfini/omnipay-instamojo",
+    "description": "Citrus (Raven) driver for the Omnipay PHP payment processing library",
     "license": "MIT",
     "authors": [
         {
@@ -19,13 +9,17 @@
             "email": "amanjain1992@gmail.com"
         }
     ],
-    "autoload": {
-        "psr-0": { "Omnipay\\Instamojo\\" : "src/" }
-    },
+    "repositories": [
+        {
+          "type": "vcs",
+          "url": "Y:\\packages\\citrus"
+        }
+    ],
     "require": {
-        "omnipay/common": "dev-master"
+        "omnipay/common": "~2.0",
+        "citrus/citrus" : "dev-master"
     },
     "require-dev": {
-        "omnipay/tests": "dev-master"
+        "omnipay/tests": "~2.0"
     }
 }

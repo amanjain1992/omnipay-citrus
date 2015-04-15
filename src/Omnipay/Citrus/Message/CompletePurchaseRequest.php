@@ -1,10 +1,10 @@
 <?php
-namespace Omnipay\Instamojo\Message;
+namespace Omnipay\Citrus\Message;
 
 class CompletePurchaseRequest extends PurchaseRequest
 {
-    protected $liveEndPoint = 'https://www.instamojo.com/api/1.1/';
-    protected $testEndPoint = 'https://www.instamojo.com/api/1.1/';
+    protected $liveEndPoint = 'https://www.Citrus.com/api/1.1/';
+    protected $testEndPoint = 'https://www.Citrus.com/api/1.1/';
     /**
      * {@inheritdoc}
      */

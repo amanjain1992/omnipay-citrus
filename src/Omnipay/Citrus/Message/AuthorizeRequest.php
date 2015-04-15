@@ -1,23 +1,23 @@
 <?php
 
-namespace Omnipay\Instamojo\Message;
+namespace Omnipay\Citrus\Message;
 
 /**
- * Instamojo Authorize Request
+ * Citrus Authorize Request
  */
 class AuthorizeRequest extends SubmitRequest
 {
     /**
      * function to create data
      * signature is require for authentication
-     * at instamojo
+     * at Citrus
      * @return [type] [description]
      */
     public function getData()
     {
         $data = parent::getData();
 
-        //$data['data_sign'] = $this->generateSignature($data);
+        $data['signature'] = $this->generateSignature();
 
         return $data;
     }

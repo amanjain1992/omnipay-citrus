@@ -1,12 +1,12 @@
 <?php
 
-namespace Omnipay\Instamojo\Message;
+namespace Omnipay\Citrus\Message;
 
 use Omnipay\Common\Message\AbstractResponse;
 use Omnipay\Common\Message\RequestInterface;
 
 /**
- * Instamojo Response
+ * Citrus Response
  */
 class Response extends AbstractResponse
 {

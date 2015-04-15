@@ -1,14 +1,14 @@
 <?php
 
-namespace Omnipay\Instamojo\Message;
+namespace Omnipay\Citrus\Message;
 
 /**
- * Instamojo Abstract Request
+ * Citrus Abstract Request
  */
 abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 {
-    protected $liveEndPoint = 'https://www.instamojo.com/api/1.1/';
-    protected $testEndPoint = 'https://www.instamojo.com/api/1.1/';
+    protected $liveEndPoint = 'https://citruspay.com/sslperf/';
+    protected $testEndPoint = 'https://sandbox.citruspay.com/sslperf/';
 
     public function getUsername()
     {
@@ -19,19 +19,9 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     {
         return $this->setParameter('username', $value);
     }
-    
-    public function getSalt()
-    {
-        return $this->getParameter('salt');
-    }
-
-    public function setSalt($value)
-    {
-        return $this->setParameter('salt', $value);
-    }
 
     /**
-     * function to send the instamojo link
+     * function to set the vanity url
      * @return [type] [description]
      */
     public function getLink()
@@ -59,13 +49,37 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->getParameter('auth_token');
     }
 
+    /**
+     * Seeting merchant access key
+     * @param [type] $value [description]
+     */
     public function setAuthToken($value)
     {
         return $this->setParameter('auth_token', $value);
     }
 
+    public function getCurrency()
+    {
+        return $this->getParameter('currency');
+    }
+
+    public function setCurrency($value)
+    {
+        return $this->setParameter('currency', $value);
+    }
+
+    public function getReturnUrl()
+    {
+        return $this->getParameter('return_url');
+    }
+
+    public function setReturnUrl($value)
+    {
+        return $this->setParameter('return_url', $value);
+    }
+
     /**
-     * function to send the data to instamojo
+     * function to send the data to Citrus
      * @param  [type] $data [description]
      * @return [type]       [description]
      */
@@ -77,11 +91,13 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 
     public function getData()
     {
-        $this->validate('amount');
+        $this->validate('amount', 'link', 'api_key');
 
         $data = array();
 
         $data['data_amount'] = $this->getAmount();
+        $data['vanity_url'] = $this->getLink();
+        $data['secret_key'] = $this->getApiKey();
 
         return $data;
     }

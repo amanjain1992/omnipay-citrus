@@ -1,9 +1,9 @@
 <?php
 
-namespace Omnipay\Instamojo\Message;
+namespace Omnipay\Citrus\Message;
 
 /**
- * Instamojo Purchase Request
+ * Citrus Purchase Request
  */
 class PurchaseRequest extends AuthorizeRequest
 {

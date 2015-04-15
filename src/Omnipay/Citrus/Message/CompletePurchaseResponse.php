@@ -1,6 +1,6 @@
 <?php
 
-namespace Omnipay\Instamojo\Message;
+namespace Omnipay\Citrus\Message;
 
 class CompletePurchaseResponse extends Response
 {
