@@ -21,5 +21,6 @@
     },
     "require-dev": {
         "omnipay/tests": "~2.0"
-    }
+    },
+    "minimum-stability": "dev-master"
 }
