@@ -58,6 +58,16 @@ class Gateway extends AbstractGateway
         return $this->getParameter('auth_token');
     }
 
+    public function getOrderId()
+    {
+        return $this->getParameter('order_id');
+    }
+
+    public function setOrderId($value)
+    {
+        return $this->setParameter('order_id', $value);
+    }
+
     /**
      * Seeting merchant access key
      * @param [type] $value [description]

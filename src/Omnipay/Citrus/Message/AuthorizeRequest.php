@@ -17,7 +17,7 @@ class AuthorizeRequest extends SubmitRequest
     {
         $data = parent::getData();
 
-        $data['signature'] = $this->generateSignature();
+        $data['secSignature'] = $this->generateSignature();
 
         return $data;
     }

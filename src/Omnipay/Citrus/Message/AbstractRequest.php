@@ -7,8 +7,8 @@ namespace Omnipay\Citrus\Message;
  */
 abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 {
-    protected $liveEndPoint = 'https://citruspay.com/sslperf/';
-    protected $testEndPoint = 'https://sandbox.citruspay.com/sslperf/';
+    protected $liveEndPoint = 'https://citruspay.com/';
+    protected $testEndPoint = 'https://sandbox.citruspay.com/';
 
     public function getUsername()
     {
@@ -44,11 +44,6 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('api_key', $value);
     }
 
-    public function getAuthToken()
-    {
-        return $this->getParameter('auth_token');
-    }
-
     /**
      * Seeting merchant access key
      * @param [type] $value [description]
@@ -56,6 +51,11 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     public function setAuthToken($value)
     {
         return $this->setParameter('auth_token', $value);
+    }
+
+    public function getAuthToken()
+    {
+        return $this->getParameter('auth_token');
     }
 
     public function getCurrency()
@@ -68,36 +68,34 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('currency', $value);
     }
 
-    public function getReturnUrl()
+    public function getOrderId()
     {
-        return $this->getParameter('return_url');
+        return $this->getParameter('order_id');
     }
 
-    public function setReturnUrl($value)
+    public function setOrderId($value)
     {
-        return $this->setParameter('return_url', $value);
+        return $this->setParameter('order_id', $value);
     }
 
-    /**
-     * function to send the data to Citrus
-     * @param  [type] $data [description]
-     * @return [type]       [description]
-     */
     public function sendData($data)
     {
-        $url = $this->getLink().'?'.http_build_query($data, '', '&').'&embed=form';
-        header('location:'.$url);
+        return $this->response = new Response($this, $data, $this->testEndPoint.$this->getLink());
+    }
+
+    protected function getEndpoint()
+    {
+        return $this->getTestMode() ? $this->testEndPoint : $this->liveEndpoint;
     }
 
     public function getData()
     {
-        $this->validate('amount', 'link', 'api_key');
+        $this->validate('amount', 'link', 'api_key', 'order_id');
 
         $data = array();
 
-        $data['data_amount'] = $this->getAmount();
+        $data['orderAmount'] = $this->getAmount();
         $data['vanity_url'] = $this->getLink();
-        $data['secret_key'] = $this->getApiKey();
 
         return $data;
     }

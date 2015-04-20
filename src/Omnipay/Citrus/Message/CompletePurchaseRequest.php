@@ -3,17 +3,19 @@ namespace Omnipay\Citrus\Message;
 
 class CompletePurchaseRequest extends PurchaseRequest
 {
-    protected $liveEndPoint = 'https://www.Citrus.com/api/1.1/';
-    protected $testEndPoint = 'https://www.Citrus.com/api/1.1/';
+
+    public function isSuccessful()
+    {
+        $data = $this->httpRequest->request->all();
+        return $data['TxStatus'] =='SUCCESS' ? 1 : 0;
+    }
     /**
      * {@inheritdoc}
      */
     public function getData()
     {
-        $data = array(
-            'payment_id'  => $this->getTransactionReference(),
-        );
-
+        $data = $this->httpRequest->request->all();
+        
         return $data;
     }
 
@@ -23,29 +25,7 @@ class CompletePurchaseRequest extends PurchaseRequest
      */
     public function getTransactionReference()
     {
-        return $this->httpRequest->query->get('payment_id');
-    }
-    
-    /**
-     * function to check the status of payment
-     * on complete ofthe purchase
-     */
-    public function sendData($data)
-    {
-        if ($data['payment_id']) {
-            $httpRequest = $this->httpClient->createRequest(
-                'GET',
-                $this->liveEndPoint.'payments/'.$data['payment_id'],
-                null,
-                $data
-            );
-
-            $httpResponse = $httpRequest
-                ->setHeader('X-Api-key', $this->getApiKey())
-                ->setHeader('X-Auth-Token', $this->getAuthToken())
-                ->send();
-                
-            return $this->response = new CompletePurchaseResponse($this, $httpResponse->json());
-        }
+        $data = $this->httpRequest->request->all();
+        return $data['TxId'];
     }
 }

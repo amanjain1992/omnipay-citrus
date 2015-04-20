@@ -15,21 +15,27 @@ class SubmitRequest extends AbstractRequest
 
         $this->validate('amount', 'link', 'api_key');
 
-        $data['data_amount'] = $this->getAmount();
-        $data['vanity_url'] = $this->getLink();
-        $data['secret_key'] = $this->getApiKey();
+        $data['orderAmount'] = $this->getAmount();
+        $data['currency'] = $this->getCurrency();
+        $data['merchantTxnId'] = $this->getOrderId();
 
         return $data;
     }
 
+    /**
+     * Function to generate the signature
+     * link here is vanity url
+     * amount is order amount
+     * @return [type] [description]
+     */
     protected function generateSignature()
     {
-        $sign = $this->getlink().$this->getAmount().uniqid().$this->getCurrency();
-        return Zend_Crypt_Hmac::compute($this->getAuthToken(), "sha1", $sign);
-    }
+        $sign = $this->getlink().$this->getAmount().$this->getOrderId().$this->getCurrency();
 
-    public function getEndpoint()
-    {
-        return $this->getEndpoint();
+        return hash_hmac(
+            'sha1',
+            $sign,
+            $this->getAuthToken()
+        );
     }
 }

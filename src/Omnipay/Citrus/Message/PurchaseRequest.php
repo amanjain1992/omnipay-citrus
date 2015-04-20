@@ -10,6 +10,7 @@ class PurchaseRequest extends AuthorizeRequest
     public function getData()
     {
         $data = parent::getData();
+        $data['returnUrl'] = $this->getReturnUrl();
 
         return $data;
     }

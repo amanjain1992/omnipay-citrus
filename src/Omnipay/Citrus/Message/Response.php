@@ -4,58 +4,42 @@ namespace Omnipay\Citrus\Message;
 
 use Omnipay\Common\Message\AbstractResponse;
 use Omnipay\Common\Message\RequestInterface;
+use Omnipay\Common\Message\RedirectResponseInterface;
 
 /**
  * Citrus Response
  */
-class Response extends AbstractResponse
+class Response extends AbstractResponse implements RedirectResponseInterface
 {
+    public function __construct(RequestInterface $request, $data, $redirectUrl)
+    {
+        parent::__construct($request, $data);
+        $this->redirectUrl = $redirectUrl;
+        $this->data = $data;
+    }
+
     public function isSuccessful()
+    {
+        return false;
+    }
+
+    public function isRedirect()
     {
         return true;
     }
 
-    public function getCode()
+    public function getRedirectUrl()
     {
-        return (
-            isset($this->data['ErrorCode']) &&
-            $this->data['ErrorCode'] != ''
-        ) ? $this->data['ErrorCode'] : null;
+        return $this->redirectUrl;
     }
 
-    public function getMessage()
+    public function getRedirectMethod()
     {
-        return (
-            isset($this->data['Message']) &&
-            $this->data['Message'] !== ''
-        ) ? $this->data['Message'] : null;
+        return 'POST';
     }
 
-    public function getTransactionReference()
+    public function getRedirectData()
     {
-        if (isset($this->data['payment']['payment_id'])) {
-            return $this->data['payment']['payment_id'];
-        }
-    }
-
-    public function getCurrency()
-    {
-        if (isset($this->data['payment']['currency'])) {
-            return $this->data['payment']['currency'];
-        }
-    }
-
-    public function getAmount()
-    {
-        if (isset($this->data['payment']['amount'])) {
-            return $this->data['payment']['amount'];
-        }
-    }
-
-    public function getBankFees()
-    {
-        if (isset($this->data['payment']['fees'])) {
-            return $this->data['payment']['fees'];
-        }
+        return $this->getData();
     }
 }
