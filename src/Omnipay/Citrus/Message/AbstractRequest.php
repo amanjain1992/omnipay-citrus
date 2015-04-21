@@ -80,12 +80,12 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 
     public function sendData($data)
     {
-        return $this->response = new Response($this, $data, $this->testEndPoint.$this->getLink());
+        return $this->response = new Response($this, $data, $this->getEndpoint().$this->getLink());
     }
 
     protected function getEndpoint()
-    {
-        return $this->getTestMode() ? $this->testEndPoint : $this->liveEndpoint;
+    {   
+        return $this->getTestMode() ? $this->testEndPoint : $this->liveEndPoint;
     }
 
     public function getData()
