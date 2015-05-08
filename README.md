@@ -15,7 +15,7 @@ to your `composer.json` file:
 ```json
 {
     "require": {
-        "mfauveau/omnipay-Citrus": "~2.0"
+        "amanjain1992/omnipay-Citrus": "~2.0"
     }
 }
 ```
@@ -44,9 +44,7 @@ If you want to keep up to date with release anouncements, discuss ideas for the 
 or ask more detailed questions, there is also a [mailing list](https://groups.google.com/forum/#!forum/omnipay) which
 you can subscribe to.
 
-If you believe you have found a bug, please report it using the [GitHub issue tracker](https://github.com/mfauveau/omnipay-Citrus/issues),
+If you believe you have found a bug, please report it using the [GitHub issue tracker](https://github.com/amanjain1992/omnipay-Citrus/issues),
 or better yet, fork the library and submit a pull request.
 =======
-# omnipay-Citrus
-Omnipay library for Citrus
->>>>>>> 7a71a9b130443e122afd8cc6a7f244b0b5c9196c
+
