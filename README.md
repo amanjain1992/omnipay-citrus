@@ -1,11 +1,11 @@
 <<<<<<< HEAD
-# Omnipay: Instamojo
+# Omnipay: Citrus
 
-**Instamojo Ltd driver for the Omnipay PHP payment processing library**
+**Citrus Ltd driver for the Omnipay PHP payment processing library**
 
 
 [Omnipay](https://github.com/omnipay/omnipay) is a framework agnostic, multi-gateway payment
-processing library for PHP 5.3+. This package implements [Instamojo Services Ltd](http://www.Instamojoservices.com/index.php/) support for Omnipay.
+processing library for PHP 5.3+. This package implements [Citrus Services Ltd](http://www.Citrusservices.com/index.php/) support for Omnipay.
 
 ## Installation
 
@@ -15,7 +15,7 @@ to your `composer.json` file:
 ```json
 {
     "require": {
-        "mfauveau/omnipay-Instamojo": "~2.0"
+        "mfauveau/omnipay-Citrus": "~2.0"
     }
 }
 ```
@@ -29,7 +29,7 @@ And run composer to update your dependencies:
 
 The following gateways are provided by this package:
 
-* Instamojo
+* Citrus
 
 For general usage instructions, please see the main [Omnipay](https://github.com/omnipay/omnipay)
 repository.
@@ -44,9 +44,9 @@ If you want to keep up to date with release anouncements, discuss ideas for the 
 or ask more detailed questions, there is also a [mailing list](https://groups.google.com/forum/#!forum/omnipay) which
 you can subscribe to.
 
-If you believe you have found a bug, please report it using the [GitHub issue tracker](https://github.com/mfauveau/omnipay-Instamojo/issues),
+If you believe you have found a bug, please report it using the [GitHub issue tracker](https://github.com/mfauveau/omnipay-Citrus/issues),
 or better yet, fork the library and submit a pull request.
 =======
-# omnipay-instamojo
-Omnipay library for instamojo
+# omnipay-Citrus
+Omnipay library for Citrus
 >>>>>>> 7a71a9b130443e122afd8cc6a7f244b0b5c9196c
